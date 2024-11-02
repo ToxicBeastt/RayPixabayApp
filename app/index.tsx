@@ -1,13 +1,28 @@
-import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { useEffect } from 'react';
+import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const App = () => {
-    return (
-        <View>
-            <Text>Welcome to the Home Screen!</Text>
-            <Button title="Go to Profile" />
-        </View>
-    );
+const Index = () => {
+    const router = useRouter();
+
+    useEffect(() => {
+        const checkToken = async () => {
+            try {
+                const token = await AsyncStorage.getItem('token');
+                if (token) {
+                    router.push('/home');
+                } else {
+                    router.push('/sign-in');
+                }
+            } catch (error) {
+                console.error('Failed to retrieve token:', error);
+            }
+        };
+
+        checkToken();
+    }, [router]);
+
+    return null;
 };
 
-export default App;
+export default Index;

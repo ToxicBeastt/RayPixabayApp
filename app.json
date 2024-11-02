@@ -19,7 +19,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jsm.sora",
+      "permissions": ["INTERNET"]
     },
     "web": {
       "bundler": "metro",
@@ -28,9 +30,6 @@
     },
     "plugins": [
       "expo-router"
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+    ]
   }
 }

@@ -1,6 +1,8 @@
 import * as SplashScreen from 'expo-splash-screen';
 import {useEffect} from 'react';
 import { useFonts } from 'expo-font'
+import { Provider } from 'react-redux';
+import { store } from '@/store/store';
 import 'react-native-reanimated';
 import "../global.css";
 
@@ -22,8 +24,10 @@ export default function RootLayout() {
 
 
   return (
-      <Stack initialRouteName="Login">
-        <Stack.Screen name="index" />
-      </Stack>
+      <Provider store={store}>
+        <Stack>
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        </Stack>
+      </Provider>
   );
 }
