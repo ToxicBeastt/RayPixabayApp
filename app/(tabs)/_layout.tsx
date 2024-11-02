@@ -1,9 +1,8 @@
 import {Stack, useRouter} from "expo-router";
-import {StatusBar} from "expo-status-bar";
 import {useEffect} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const AuthLayout = () => {
+const TabLayout = () => {
     const router = useRouter();
 
     useEffect(() => {
@@ -22,15 +21,14 @@ const AuthLayout = () => {
 
         checkToken();
     }, [router]);
+
     return (
         <>
             <Stack>
-                <Stack.Screen name="sign-in" options={{ headerShown: false }}/>
+                <Stack.Screen name="home" options={{ headerShown: false }}/>
             </Stack>
-
-            <StatusBar style="light" />
         </>
-    )
-}
+    );
+};
 
-export default AuthLayout;
+export default TabLayout;

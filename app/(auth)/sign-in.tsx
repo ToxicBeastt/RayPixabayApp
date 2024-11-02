@@ -23,7 +23,7 @@ const SignIn = () => {
         try {
             const { token } = await login(form).unwrap();
             await AsyncStorage.setItem('token', token);
-            router.push('/');
+            router.push('/home');
         }  catch (error: unknown) {
             let errorMessage = "Login failed. Please try again.";
             if (error && typeof error === 'object') {
