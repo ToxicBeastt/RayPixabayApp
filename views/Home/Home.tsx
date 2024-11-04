@@ -54,7 +54,7 @@ const Home = () => {
     const loadMoreImages = () => {
         if (!isLoadingMore && !isLoading && hits.length > 0) {
             setIsLoadingMore(true);
-            setPage((prev) => prev + 1); // Trigger loading next page
+            setPage((prev) => prev + 1);
         }
     };
 
